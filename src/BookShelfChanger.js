@@ -11,7 +11,6 @@ function BookShelfChanger(props) {
       <select
         value={selected}
         onChange={(e) => {
-          console.log(e.target.value);
           onBookShelfChanged(e.target.value);
         }}
       >
