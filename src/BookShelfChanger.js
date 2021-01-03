@@ -32,7 +32,9 @@ function BookShelfChanger(props) {
 }
 
 BookShelfChanger.propTypes = {
-  shelves: PropTypes.array
+  shelves: PropTypes.array,
+  selected: PropTypes.string,
+  onBookShelfChanged: PropTypes.func
 };
 
 export default BookShelfChanger;
