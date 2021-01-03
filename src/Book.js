@@ -2,7 +2,6 @@ import React from "react";
 import "./App.css";
 import BookShelfChanger from "./BookShelfChanger";
 import PropTypes from "prop-types";
-import { BookModel } from "./models";
 
 function Book(props) {
   const { book, shelves, onBookShelfChanged } = props;
@@ -38,7 +37,7 @@ function Book(props) {
 }
 
 Book.propTypes = {
-  book: PropTypes.objectOf(BookModel),
+  book: PropTypes.object,
   shelves: PropTypes.array
 };
 
