@@ -3,8 +3,7 @@ import "./App.css";
 import BooksGrid from "./BooksGrid.js";
 import PropTypes from "prop-types";
 
-function BookShelf(props) {
-  const { shelves, shelf, books, onBookShelfChanged } = props;
+const BookShelf = ({ shelves, shelf, books, onBookShelfChanged }) => {
   return (
     <div className="bookshelf">
       <h2 className="bookshelf-title">{shelf.name}</h2>
@@ -17,7 +16,7 @@ function BookShelf(props) {
       </div>
     </div>
   );
-}
+};
 
 BookShelf.propTypes = {
   shelf: PropTypes.object.isRequired,

@@ -3,8 +3,7 @@ import "./App.css";
 import BookShelfChanger from "./BookShelfChanger";
 import PropTypes from "prop-types";
 
-function Book(props) {
-  const { book, shelves, onBookShelfChanged } = props;
+const Book = ({ book, shelves, onBookShelfChanged }) => {
   return (
     <div className="book">
       <div className="book-top">
@@ -34,7 +33,7 @@ function Book(props) {
         : ""}
     </div>
   );
-}
+};
 
 Book.propTypes = {
   book: PropTypes.object,

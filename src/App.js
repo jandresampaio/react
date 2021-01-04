@@ -30,13 +30,18 @@ class BooksApp extends Component {
 
   componentDidMount() {
     BooksAPI.getAll().then((books) => {
-      this.setBooksDictionary(books);
+      this.loadBooks(books);
     });
   }
 
-  setBooksDictionary(books) {
+  loadBooks(books) {
+    const { books: prevBooks } = this.state;
     const booksMap = books.reduce((acc, book) => {
-      acc[book.id] = book;
+      const existingBook = prevBooks[book.id];
+      acc[book.id] = {
+        ...book,
+        shelf: book.shelf || (existingBook ? existingBook.shelf : undefined)
+      };
       return acc;
     }, {});
     this.setState((prevState) => ({
@@ -67,7 +72,7 @@ class BooksApp extends Component {
   }
 
   onBookSearch(results) {
-    this.setBooksDictionary(results);
+    this.loadBooks(results);
   }
 
   render() {

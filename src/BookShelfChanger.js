@@ -3,8 +3,12 @@ import "./App.css";
 import PropTypes from "prop-types";
 
 const noneSelectedKey = "none";
-function BookShelfChanger(props) {
-  const { shelves, selected = noneSelectedKey, onBookShelfChanged } = props;
+
+const BookShelfChanger = ({
+  shelves,
+  selected = noneSelectedKey,
+  onBookShelfChanged
+}) => {
   const availableShelves = [...shelves, { id: noneSelectedKey, name: "None" }];
   return (
     <div className="book-shelf-changer">
@@ -29,7 +33,7 @@ function BookShelfChanger(props) {
       </select>
     </div>
   );
-}
+};
 
 BookShelfChanger.propTypes = {
   shelves: PropTypes.array,
