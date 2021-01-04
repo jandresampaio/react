@@ -15,8 +15,8 @@ Book Shelf Changer was also separated, in order to be reused or changed in the f
 
 Shelves was assumed to be a static piece of data on the App root.
 It was assumed that books are at the base level of the app.
--On the Shelf components, only the books with associated shelves are displayed.
--On the Search component the state of the results is kept and then books is provided as input from parent component, which results in displaying the resulting books as a filter operation from both data
+On the Shelf components, only the books with associated shelves are displayed.
+On the Search component the state of the results is kept and then books is provided as input from parent component, which results in displaying the resulting books as a filter operation from both data
 
 # Data flow
 
