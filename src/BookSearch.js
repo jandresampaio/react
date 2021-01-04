@@ -27,26 +27,24 @@ class BookSearch extends Component {
   };
 
   onQueryChange(query) {
-    this.setState(({ visibleIds }) => {
-      return {
-        query,
-        visibleIds: query ? visibleIds : []
-      };
+    this.setState({
+      query
     });
-    if (!query) {
-      return;
-    }
-    debounceFunction(
-      () =>
-        BooksAPI.search(query).then((books) => {
-          const searchResults = !books || books.error ? [] : books;
-          this.setState({
-            visibleIds: searchResults.map((b) => b.id)
-          });
-          this.props.onSearch(searchResults);
-        }),
-      300
-    );
+    debounceFunction(() => {
+      const { query } = this.state;
+      if (!query) {
+        return this.setState({
+          visibleIds: []
+        });
+      }
+      BooksAPI.search(query).then((books) => {
+        const searchResults = !books || books.error ? [] : books;
+        this.setState({
+          visibleIds: this.state.query ? searchResults.map((b) => b.id) : []
+        });
+        this.props.onSearch(searchResults);
+      });
+    }, 300);
   }
 
   render() {

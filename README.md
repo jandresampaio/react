@@ -22,6 +22,7 @@ It was assumed that books are at the base level of the app.
 
 Following the inverse data flow principle, nested components emit "events" to their parents chain of components, which, in turn, reset their inputs to the children components.
 Biggest issue here is some components are deeply nested, such as BookShelfChanger, and have to propagate the change event to Book -> BooksGrid -> Parent (App or Search)
+Other issue is that shelves has to be passed along most of the components chain, because its required to visualize and to change at the book level.
 
 ## TL;DR
 
